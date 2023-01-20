@@ -44,11 +44,14 @@ fn main() -> io::Result<()> {
     println!("Tell me the seconds number: ");
     io::stdin().read_line(&mut second_operation_number.operational_string)?;
 
+    let first_number: i32 = first_operation_number.operation_string_to_number();
+    let second_number: i32 = second_operation_number.operation_string_to_number();
+
     let operation_result: i32 = match matematical_operator.operation_string_to_str() {
-        "-" => first_operation_number.operation_string_to_number() - second_operation_number.operation_string_to_number(),
-        "+" => first_operation_number.operation_string_to_number() + second_operation_number.operation_string_to_number(),
-        "/" => first_operation_number.operation_string_to_number() / second_operation_number.operation_string_to_number(),
-        "*" => first_operation_number.operation_string_to_number() * second_operation_number.operation_string_to_number(),
+        "-" => first_number - second_number,
+        "+" => first_number + second_number,
+        "/" => first_number / second_number,
+        "*" => first_number * second_number,
         _ => 0,
     };
 
